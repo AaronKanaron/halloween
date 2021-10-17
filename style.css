@@ -63,8 +63,8 @@ body {
   pointer-events: none;
   background: url(img/fog01.webp) repeat;
   background-size: auto 100%;
-  -webkit-animation: fog infinite 300s linear 0s;
-          animation: fog infinite 300s linear 0s;
+  -webkit-animation: fog infinite 100s linear 0s;
+          animation: fog infinite 100s linear 0s;
 }
 
 .background .fog::before {
@@ -74,10 +74,11 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
+  z-index: 21;
   background: url(img/fog02.webp) repeat;
   background-size: auto 100%;
-  -webkit-animation: fog infinite 500s linear 0s;
-          animation: fog infinite 500s linear 0s;
+  -webkit-animation: fog infinite 800s linear 0s;
+          animation: fog infinite 800s linear 0s;
 }
 
 .background .noise {
@@ -102,7 +103,7 @@ body {
   width: 100vw;
   height: 100vh;
   z-index: 10;
-  border-left: .5vh solid #0a0a0ade;
+  border-left: .3vh solid #0a0a0ade;
   -webkit-transform: translateX(100%);
           transform: translateX(100%);
 }

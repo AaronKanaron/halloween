@@ -7,10 +7,11 @@
 body{
 	margin: 0;
 	padding: 0;
-	overflow: hidden;
+	filter: grayscale(1) sepia(.3);
 }
 
 * {
+	overflow: hidden;
 	font-family: 'Inter', sans-serif;
 }
 
@@ -26,7 +27,6 @@ body{
 	z-index: 1;
 	pointer-events: none;
 	image-rendering: -webkit-optimize-contrast;
-	filter: grayscale(1) brightness(80%);
 	&:after{
 		content: "";
 		position: absolute;
@@ -121,6 +121,7 @@ body{
 	flex-direction: column;
 
 	.content{
+	
 		text-align: center;
 
 		h1{
@@ -139,25 +140,33 @@ body{
 			}
 			
 			span{
+				-webkit-text-stroke: 0;
 				color: var(--clr-primary);
 				@supports(-webkit-text-stroke: 1px white) {
 					color: transparent;
 					-webkit-text-stroke: 0.125vmax var(--clr-primary);
 				}
 				animation: flicker 2s forwards;
-				// background-clip: text;
-				// -webkit-text-fill-color: transparent;
 			}
 		}
 
-		p{
+		h2{
 			color: white;
-			font-size: 1vmax;
+			opacity: 0.7;
+			font-size: calc((3vh+3vw));
 			letter-spacing: .05vmax;
+		}
 
-			span{
-				color: var(--clr-primary);
-			}
+		p{
+			font-size: calc((2vh+2vw));
+			letter-spacing: .05vmax;
+			color: var(--clr-primary);
+		}
+
+		hr{
+			color: var(--clr-primary);
+			width: 30vh;
+			margin: 0 auto;
 		}
 
 		button{
@@ -176,15 +185,18 @@ body{
 	.bottom{
 		position: absolute;
 		bottom: 0;
+		z-index: 150;
 
 		text-transform: uppercase;
 		letter-spacing: .5vmax;
+		
 
 		font-size: 2vmax;
 		font-family: 'Titillium Web', sans-serif;
-		color: #e7e7e793;
-		@supports(-webkit-text-stroke: 1px) {
+		color: #e7e7e765;
+		@supports(-webkit-text-stroke: 0) {
 			color: transparent;
+			-webkit-text-stroke: 0.125vmax #e7e7e765;
 		}
 	}
 }

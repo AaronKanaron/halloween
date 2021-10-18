@@ -1,16 +1,13 @@
-function line() {
-	document.getElementById("line").style.display = "block"
-	document.getElementById("line").style.transform = "translateX(" + Math.floor(Math.random() * 100) + "%)"
-	setTimeout(() => {
-		document.getElementById("line").style.display = "none"
-		console.log("hide")
-	}, Math.round(Math.random() * (200 - 50)) + 50); //MS SHOWTIME
-}
+Array.from(document.getElementsByClassName("line")).forEach((index) => {
+	Line(index)
+})
 
-(function loop() {
-    var rand = Math.round(Math.random() * (600 - 100)) + 100; //first: max, second: min, third: min
-    setTimeout(function() {
-            line();
-            loop();  
-    }, rand);
-}());
+function Line(element) {
+	element.style.cssText = "display: block; transform: translateX(" + Math.floor(Math.random() * 100) + "%)"
+	setTimeout(() => {
+		element.style.display = "none" 
+	}, Math.round(Math.random() * (200 - 100)) + 100); //MS SHOWTIME);
+	setTimeout(() => {
+		Line(element)
+	}, Math.floor(Math.random() * (1500 - 100) + 100));
+}

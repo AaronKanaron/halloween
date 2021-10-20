@@ -7,11 +7,9 @@
 body{
 	margin: 0;
 	padding: 0;
-	filter: grayscale(1) sepia(.3);
 }
 
 * {
-	overflow: hidden;
 	font-family: 'Inter', sans-serif;
 }
 
@@ -21,7 +19,9 @@ body{
 	left: 0;
 	width: 100vw;
 	height: 100vh;
-	
+	filter: grayscale(1) sepia(.3);
+	overflow: hidden;
+
 	background: url(img/bg.webp) no-repeat center center;
 	background-size: cover;
 	z-index: 1;
@@ -125,6 +125,7 @@ body{
 		text-align: center;
 
 		h1{
+			
 			text-transform: uppercase;
 			letter-spacing: .5vmax;
 
@@ -133,13 +134,14 @@ body{
 			color: white;
 
 			margin: 0;
-
+			padding: 0;
 			@supports(-webkit-text-stroke: 1px white) {
 				color: transparent;
 				-webkit-text-stroke: 0.125vmax white;
 			}
 			
 			span{
+				height: min-content;
 				-webkit-text-stroke: 0;
 				color: var(--clr-primary);
 				@supports(-webkit-text-stroke: 1px white) {
@@ -147,7 +149,24 @@ body{
 					-webkit-text-stroke: 0.125vmax var(--clr-primary);
 				}
 				animation: flicker 2s forwards;
+
+				&.blood{
+					position: relative;
+					&:before{
+						content: "";
+						position: absolute;
+						top: 62%;
+						filter: brightness(80%) sepia(.2) grayscale(0.1);
+						width: 1.1ch;
+						left: -8%;
+						height: 100%;
+						background: url(img/blood.webp) no-repeat;
+						background-size: contain;
+					}
+				}
 			}
+
+			
 		}
 
 		h2{

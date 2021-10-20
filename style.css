@@ -8,12 +8,9 @@
 body {
   margin: 0;
   padding: 0;
-  -webkit-filter: grayscale(1) sepia(0.3);
-          filter: grayscale(1) sepia(0.3);
 }
 
 * {
-  overflow: hidden;
   font-family: 'Inter', sans-serif;
 }
 
@@ -23,6 +20,9 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
+  -webkit-filter: grayscale(1) sepia(0.3);
+          filter: grayscale(1) sepia(0.3);
+  overflow: hidden;
   background: url(img/bg.webp) no-repeat center center;
   background-size: cover;
   z-index: 1;
@@ -142,6 +142,7 @@ body {
   font-family: 'Titillium Web', sans-serif;
   color: white;
   margin: 0;
+  padding: 0;
 }
 
 @supports (-webkit-text-stroke: 1px white) {
@@ -152,6 +153,9 @@ body {
 }
 
 .container .content h1 span {
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
   -webkit-text-stroke: 0;
   color: var(--clr-primary);
   -webkit-animation: flicker 2s forwards;
@@ -163,6 +167,23 @@ body {
     color: transparent;
     -webkit-text-stroke: 0.125vmax var(--clr-primary);
   }
+}
+
+.container .content h1 span.blood {
+  position: relative;
+}
+
+.container .content h1 span.blood:before {
+  content: "";
+  position: absolute;
+  top: 62%;
+  -webkit-filter: brightness(80%) sepia(0.2) grayscale(0.1);
+          filter: brightness(80%) sepia(0.2) grayscale(0.1);
+  width: 1.1ch;
+  left: -8%;
+  height: 100%;
+  background: url(img/blood.webp) no-repeat;
+  background-size: contain;
 }
 
 .container .content h2 {
